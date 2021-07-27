@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<form  method="POST">
+	{% csrf_token %}
+<div class="card">
+
+    <div class="card-body">
+      <form method="post">
+        {% include 'partials/_messages.html'%} {% csrf_token %}
+        <h3>ADD CATEGORY</h3>
+        <div class="form-group">
+          <label for="">Category Name</label><br>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="Category_name"
+
+          />
+        </div>
+          <input
+          type="submit"
+          value="Submit"
+          class="btn btn-primary btn-primary-sm"/>
+      </form>
+    </div>
+</div>
+  {% endblock %}

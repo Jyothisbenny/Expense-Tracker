@@ -1,0 +1,30 @@
+{% extends "logintemplate/base.html" %}
+{% load static %}
+{% block content %}
+<h3> User Login </h3>
+
+<form method="POST">
+	{% csrf_token %}
+
+	<input type="text" name="username" placeholder="Username"><br>
+	<input type="password" name="password" placeholder="Password"><br>
+
+	<button>Login</button>
+	<h5>create new account <a href="{% url 'register_url' %}">Register</a></h5>
+
+</form>
+<div>
+	<h3><div class="container">
+<div class="form-group">
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				 {{ message }}
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+
+	</h3>
+</div>
+{% endblock %}

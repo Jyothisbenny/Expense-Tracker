@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+ <html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 35px 192px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h3> Welcome, {{user.username}}</h3>
+<div class="form-group">
+          <label for="">ssup!</label><br>
+
+        </div>
+<div>
+        <a href="{% url 'expense_url' %}" class="button">My Expenses</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'income_url' %}" class="button">My Incomes</a>
+          </div>
+<div>
+        <!--<br/><h4><a href="{% url 'show_results' %}" >search income</a></h4>
+        <h4><a href="{% url 'show_expense' %}" >search expense</a></h4> -->
+
+    </div>
+</body>
+ </html>
+
+{% endblock %}

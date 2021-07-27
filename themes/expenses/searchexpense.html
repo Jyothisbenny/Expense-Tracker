@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Expense</title>
+    <h3>Search Expense</h3><br>
+</head>
+<body>
+<form action="{% url 'show_expense' %}" method="post">
+    {% csrf_token %}
+    from:<input type="date" name="start_date1">
+    To:<input type="date" name="end_date1">
+    <input type="submit" value="submit">
+
+    <hr/>
+    <table class="table table-stripped table-hover">
+        <tr>
+
+            <th>Amount</th>
+            <th>date</th>
+            <th>Description</th>
+            <th>Category</th>
+
+        </tr>
+        {% for expense in page_obj%}
+      <tr>
+        <td>{{expense.amount}}</td>
+        <td>{{expense.date}}</td>
+        <td>{{expense.description}}</td>
+        <td>{{expense.category}}</td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+ <div class="pagination-container">
+    <div class="">
+      Showing page {{page_obj.number}} of {{ page_obj.paginator.num_pages }}
+    </div>
+
+
+
+</form>
+
+</body>
+</html>
+{% endblock %}

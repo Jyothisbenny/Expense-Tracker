@@ -1,0 +1,69 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h2> Add Expense </h2>
+
+<form  method="POST">
+	{% csrf_token %}
+	<div class="form-group">
+          <label for="">Amount</label><br>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="amount"
+          />
+        </div>
+	<div class="form-group">
+          <label for="">description</label><br>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="description"
+          />
+        </div>
+	<!--<div class="form-group">
+          <label for="">Category</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="category"
+          />
+        </div> -->
+    <div class="form-group">
+          <label for="">Category</label><br>
+          <select class="form-control" name="category">
+            {% for category in categories %}
+            <option name="category" value="{{category.name}}"
+              >{{category.name}}</option
+            >
+
+            {% endfor %}
+          </select>
+
+
+	<div class="form-group">
+          <label for="">Date of Expense</label><br>
+          <input
+            type="date"
+            class="form-control form-control-sm"
+            name="expense_date"
+          />
+        </div>
+
+	<input
+          type="submit"
+          value="Submit"
+          class="btn btn-primary btn-primary-sm"
+        />
+
+</h4></div>
+
+</form>
+<div>
+	<h3>
+		{% for message in messages %}
+		{{ message }}
+		{% endfor %}
+	</h3>
+</div>
+{% endblock %}
